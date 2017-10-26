@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			td{
+				width: 50px;
+			}
+			tr{
+				height: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1px #000000 solid" cellspacing="0">
+			<tr>
+				<td>id</td>
+				<td>姓名</td>
+				<td>年龄</td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript" src="routes/jquery-1.8.3.min.js"></script>
+		<script>
+		    $(function(){
+		        $.ajax({
+		            url:"http://localhost:3000/",
+		            type:"POST",
+		            success:function(e){
+		            	console.log(e)
+		                for(var i=0;i<e.length;i++){
+		                    $('table').append('<tr><td>'+e[i].id+'</td><td>'+e[i].name+'</td><td>'+e[i].age+'</td></tr>')
+		                }
+		            }
+		        })
+		    })
+		</script>
+	</body>
+</html>
